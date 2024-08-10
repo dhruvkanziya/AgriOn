@@ -1,1 +1,3 @@
 # AgriOn
+Agricultural Empowerment: Offering farmers a one-stop solution for all agricultural needs. From real-time market insights and weather reports to curated information on seeds, fertilizers, and trending vegetables, our platform is designed for informed decision-making. Stay ahead with the latest news and tips etc...
+
