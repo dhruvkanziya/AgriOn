@@ -1,0 +1,62 @@
+.weather-report-card{
+    background-color:rgb(149,229,125);
+    color: rgb(57,69,72);
+}
+
+/* All Agriculture Data */
+.data-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.data-item {
+    color: rgb(57,69,72);
+    font-weight: bold;
+    background-color:rgb(149,229,125);
+    width: 200px;
+    height: 200px;
+    padding: 10px;
+    margin: 10px;
+    cursor: pointer;
+    box-shadow: 5px 5px rgb(168, 171, 173);
+    font-family: 'Times New Roman';
+    font-weight: bold;
+}
+
+.data-item:hover {
+    background-color: rgb(217, 226, 228);
+    transform: calc(1.1);
+}
+
+.Other-citys-marketdata h1:hover {
+    background-color: #cababa;
+}
+
+/* Spinner */
+.exampleHolder{
+    position: relative;
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+}
+
+/* Show more and previous button */
+
+.previous-more-button{
+display: flex;
+justify-content: space-between;
+}
+
+.all-city-box{
+    background-color:#394449 ;
+    color: white;
+}
+.important-links{
+    background-color:#394449 ;
+    color: white;
+}
+.inm-data{
+    display: flex;
+    flex-direction: row;
+}

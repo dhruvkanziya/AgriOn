@@ -1,0 +1,103 @@
+<template>
+
+    <!-- Row 1 -->
+    <lightning-layout multiple-rows>
+        <lightning-layout-item size="12" small-device-size="6" medium-device-size="3" large-device-size="3"
+            padding="horizontal-small">
+            <div class="slds-col">
+                <h1 class="types slds-box slds-align_absolute-center slds-text-heading_medium" data-name="Seeds"
+                    onclick={OnclickOfSeedTypes}>Seeds</h1>
+            </div>
+        </lightning-layout-item>
+        <lightning-layout-item size="12" small-device-size="6" medium-device-size="3" large-device-size="3"
+            padding="horizontal-small">
+            <div class="slds-col">
+                <h1 class="types slds-box slds-align_absolute-center slds-text-heading_medium" data-name="Fertilizers"
+                    onclick={OnclickOfSeedTypes}>Fertilizers</h1>
+            </div>
+        </lightning-layout-item>
+        <lightning-layout-item size="12" small-device-size="6" medium-device-size="3" large-device-size="3"
+            padding="horizontal-small">
+            <div class="slds-col">
+                <h1 class="types slds-box slds-align_absolute-center slds-text-heading_small"
+                    data-name="Recommanded Seeds" onclick={OnclickOfSeedTypes}>Recommanded Seeds
+                </h1>
+            </div>
+        </lightning-layout-item>
+        <lightning-layout-item size="12" small-device-size="6" medium-device-size="3" large-device-size="3"
+            padding="horizontal-small">
+            <div class="slds-col">
+                <h1 class="types slds-box slds-align_absolute-center slds-text-heading_small slds-m-bottom_xx-large"
+                    data-name="Recommanded Fertilizers" onclick={OnclickOfSeedTypes}>Recommanded Fertilizers</h1>
+            </div>
+        </lightning-layout-item>
+    </lightning-layout>
+
+
+
+
+
+
+
+    <!-- Seeds Template -->
+    <template if:true={SeedsTemplate}>
+        <h1
+            class="heading slds-text-heading_large slds-align_absolute-center slds-border_bottom slds-m-top_medium slds-border_top">
+            Seeds</h1>
+        <div class="containerone">
+            <template for:each={StoreAllSeedsData} for:item="seed" for:index="index">
+                <lightning-layout-item size="12" small-device-size="12" medium-device-size="3" large-device-size="3"
+                    padding="horizontal-small" key={seed.Id}>
+                    <div key={seed.Id} class="block-container">
+                        <div key={seed.Id} class="block">
+                            <div class="image-container">
+                                <img class="imgh" style="height: 80px; width:100px" src={seed.Image_Url__c} alt="">
+                            </div>
+                            <b class="Name slds-text-heading_medium">{seed.Name}</b>
+                            <b class="Season slds-text-body_small">{seed.Recommanded_Season__c}</b>
+                            <p class="Information slds-text-body_regular">{seed.Information_del1__c}
+                            </p>
+                            <lightning-formatted-url value={seed.Read_More__c}
+                                label="read more..."></lightning-formatted-url>
+                        </div>
+                    </div>
+                </lightning-layout-item>
+            </template>
+        </div>
+    </template>
+
+
+    <template if:true={FertilizerTemplate}>
+        <h1
+            class="heading slds-text-heading_large slds-align_absolute-center slds-border_bottom slds-m-top_medium slds-border_top">
+            Fertilizers</h1>
+        <div class="containerone">
+            <template for:each={StoreAllFertilizersData} for:item="fertilizer">
+                <lightning-layout-item size="12" small-device-size="12" medium-device-size="3" large-device-size="3"
+                    padding="horizontal-small" key={fertilizer.Id}>
+                    <div key={fertilizer.Id} class="block-container">
+                        <div key={fertilizer.Id} class="block">
+                            <div class="image-container">
+                                <img class="imgh" style="height: 80px; width:150px" src={fertilizer.Image_Url__c}
+                                    alt="">
+                            </div>
+                            <b class="Name slds-text-heading_medium">{fertilizer.Name}</b>
+                            <p class="Information slds-text-body_regular ">{fertilizer.Information__c}</p>
+                            <lightning-formatted-url value={fertilizer.Read_More__c}
+                                label="read more..."></lightning-formatted-url>
+                        </div>
+                    </div>
+                </lightning-layout-item>
+            </template>
+        </div>
+    </template>
+    <div class="margin">
+        <template if:true={WillWorkinOnThis}>
+            <p class="slds-m-top_large slds-text-heading_medium slds-align_absolute-center ">Recommanded Seeds &
+                Fertilizers
+                functionality is under Development.</p>
+            <p class="slds-m-top_large slds-text-heading_medium slds-align_absolute-center ">Wi'll Update it soon, Thank
+                You..!</p>
+        </template>
+    </div>
+</template>

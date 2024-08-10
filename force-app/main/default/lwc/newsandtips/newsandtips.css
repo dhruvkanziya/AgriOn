@@ -1,0 +1,88 @@
+.scheme-date{
+    display: flex;
+    justify-content: space-between;
+}
+.main-schems{
+    background-color: #394449;
+    color: #ffffff;
+}
+.all-agrinews{
+    display: flex;
+    flex-direction: row;
+}
+.headline-date{
+    display: flex;
+    justify-content: space-between;
+}
+.main-news{
+    display: flex;
+    flex-direction: column;
+}
+.headline-description{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.tips{
+    background-color:#95E57D ;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Marquee effect slider */
+.marque {
+    margin-bottom: 10px;
+    font-size: medium;
+    color: #181921;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* heading of page */
+.heading {
+    font-size: xx-large;
+    font: bolder;
+    font-family: 'Times New Roman', Times, serif;
+    margin-left: 20px;
+    display: inline-block;
+    animation: flicker 1s infinite;
+    color: rgb(185, 51, 51);
+}
+
+
+
+@keyframes flicker {
+
+    0%,
+    100% {
+        color: red;
+    }
+
+    50% {
+        color: blue;
+    }
+}
+
+
+

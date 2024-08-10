@@ -1,0 +1,249 @@
+<template>
+    <marquee class="marque" key={heading.Id} behavior="scroll" scorllamount="10" direction="left">
+        Welcome to Agriculture Empowerment, your one-stop destination for staying informed about the latest happenings
+        in the world of
+        agriculture. We understand the importance of staying up-to-date with the rapidly evolving agricultural
+        landscape, and
+        that's why we've curated a comprehensive platform for all your agricultural news needs.
+    </marquee>
+
+
+    <!-- All Government Schems -->
+    <lightning-layout multiple-rows>
+        <lightning-layout-item size="12" small-device-size="12" medium-device-size="4" large-device-size="4">
+            <div class=" main-schems slds-box">
+                <h1 class="slds-text-heading_large slds-m-left_small slds-p-around_medium">All government schemes </h1>
+
+                <template if:true={Storeschems} for:each={Storeschems} for:item="Schems">
+                    <div key={Schems.id}
+                        class="all-news slds-m-left_small slds-p-around_small slds-border_top slds-border_bottom">
+                        <div class="scheme-date">
+                            <div>
+                                <h1 class="slds-text-heading_small ">{Schems.Name}</h1>
+                            </div>
+                            <div>
+                                <lightning-formatted-date-time value={Schems.Date__c} day="2-digit" month="2-digit"
+                                    year="2-digit"></lightning-formatted-date-time>
+                            </div>
+                        </div>
+                        <p style="display:inline; color:white;">{Schems.Information__c}</p>
+                        <lightning-formatted-url value={Schems.Read_More__c}
+                            label="read more..."></lightning-formatted-url>
+                    </div>
+                </template>
+                <div class="slds-m-top_large slds-m-left_small slds-p-around_medium">
+                    <h1 style="display: inline;" class="slds-text-heading_small ">To
+                        Know More Agriculture
+                        Related Schecme
+                        Please Visit</h1>
+                    <lightning-formatted-url style="color: black;" value="https://www.myscheme.gov.in/"
+                        tooltip="https://www.myscheme.gov.in/" label="myscheme.gov.in"
+                        target="_blank"></lightning-formatted-url>
+                </div>
+
+            </div>
+        </lightning-layout-item>
+
+
+
+        <!-- All News Related Agriculture -->
+        <lightning-layout-item size="12" small-device-size="12" medium-device-size="8" large-device-size="8">
+            <h6 class="heading slds-m-bottom_medium">Cultivating Insights: Latest Agriculture News</h6>
+
+
+            <template if:true={StoreNewsTipsData} for:each={StoreNewsTipsData} for:item="news">
+                <div key={news.Id} class="main-news slds-box slds-m-around_small">
+                    <div class="all-agrinews">
+                        <div>
+                            <img class="image" style=" width: 600px; height:100px; border:2px solid black"
+                                src={news.Image_Url__c} alt="">
+                        </div>
+
+                        <div class="headline-date">
+                            <div class="headline-description  slds-p-left_medium">
+                                <div>
+                                    <h1 class="slds-text-heading_small"> {news.Headline__c}</h1>
+
+                                </div>
+                                <div>
+                                    <p style="display:inline">{news.Description__c}</p>
+                                    <lightning-formatted-url value={news.Website_url__c} label="read more..."
+                                        target={news.Website_url__c}></lightning-formatted-url>
+                                </div>
+                            </div>
+                            <div>
+                                <lightning-formatted-date-time value={news.Date__c} day="2-digit" month="2-digit"
+                                    year="2-digit"></lightning-formatted-date-time>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </template>
+        </lightning-layout-item>
+    </lightning-layout>
+
+
+
+
+
+
+
+
+    <!-- Agriculture Tips: Crop Selection to Harvesting -->
+    <h1 class="slds-text-heading_large slds-m-around_small slds-p-around_small">Agriculture Tips: Crop Selection to
+        Harvesting</h1>
+    <lightning-layout multiple-rows>
+        <lightning-layout-item size="12" small-device-size="6" medium-device-size="4" large-device-size="3"
+            padding="horizontal-small">
+            <div class="tips slds-m-around_small slds-p-around_small slds-box">
+                <h2 class="slds-text-heading_medium">1. Crop Selection</h2>
+                <p>Effective crop selection is vital in agriculture, considering diverse soil types, nutrient
+                    requirements, and water needs. Tailoring choices to growing seasons and local climates ensures
+                    optimal yield. Successful farming hinges on aligning these factors with the specific demands of each
+                    crop. By making informed decisions on crop selection, farmers can lay the foundation for sustainable
+                    and productive agricultural practices.</p>
+            </div>
+        </lightning-layout-item>
+
+
+
+        <lightning-layout-item size="12" small-device-size="6" medium-device-size="4" large-device-size="3"
+            padding="horizontal-small">
+            <div class="tips slds-m-around_small slds-p-around_small slds-box">
+                <h2 class="slds-text-heading_medium">2. Soil Preparation</h2>
+                <p>Soil preparation is fundamental to successful crop cultivation. The process involves ploughing for
+                    soil aeration, leveling for even distribution, and manuring to enhance fertility. Factors like soil
+                    texture, compaction, and organic matter content significantly impact crop growth. Aligning crop
+                    choices with soil characteristics increases agricultural success, with growers able to influence
+                    soil attributes through cultivation practices and amendments for optimal conditions.</p>
+            </div>
+        </lightning-layout-item>
+
+
+
+        <lightning-layout-item size="12" small-device-size="6" medium-device-size="4" large-device-size="3"
+            padding="horizontal-small">
+            <div class="tips slds-m-around_small slds-p-around_small slds-box">
+                <h2 class="slds-text-heading_medium"> 3. Seed Selection</h2>
+                <p>Seed selection is a critical aspect of crop cultivation as it directly influences plant growth and
+                    eventual yield. Choosing high-quality seeds is paramount for successful outcomes, ensuring that they
+                    possess the necessary attributes for robust plant development. Opting for healthy seeds is
+                    imperative,
+                    as their quality significantly impacts the overall success of the crop, emphasizing the importance
+                    of
+                    meticulous seed selection in agriculture.</p>
+            </div>
+        </lightning-layout-item>
+
+
+
+
+
+        <lightning-layout-item size="12" small-device-size="6" medium-device-size="4" large-device-size="3"
+            padding="horizontal-small">
+            <div class="tips slds-m-around_small slds-p-around_small slds-box">
+                <h2 class="slds-text-heading_medium">4. Seed Sowing</h2>
+                <p>Seed sowing is a pivotal stage in agriculture, following soil preparation. It involves dispersing
+                    high-quality crop seeds across the field, either manually or using seed drilling machines. Certain
+                    crops, like paddy, undergo initial growth as seedlings in a specific area before being transplanted
+                    to
+                    the primary field. Access to good quality seeds remains a challenge for many farmers due to the high
+                    costs associated with superior seed varieties.</p>
+            </div>
+        </lightning-layout-item>
+
+
+        <lightning-layout-item size="12" small-device-size="6" medium-device-size="4" large-device-size="3"
+            padding="horizontal-small">
+            <div class="tips slds-m-around_small slds-p-around_small slds-box">
+                <h2 class="slds-text-heading_medium">5. Irrigation</h2>
+                <p>Effective irrigation is indispensable for sustainable agriculture, necessitating regular water
+                    supply. The modern approach, such as the drip irrigation system, proves efficient in water
+                    conservation by avoiding excessive wastage and rapid evaporation. Utilizing sources like wells,
+                    ponds, and canals, irrigation demands prudent control to prevent waterlogging and crop damage.
+                    Monitoring frequency and intervals between successive irrigation cycles becomes crucial for optimal
+                    crop health.</p>
+            </div>
+        </lightning-layout-item>
+
+
+        <lightning-layout-item size="12" small-device-size="6" medium-device-size="4" large-device-size="3"
+            padding="horizontal-small">
+            <div class="tips slds-m-around_small slds-p-around_small slds-box">
+                <h2 class="slds-text-heading_medium">6. Fertilizers and Manures</h2>
+                <p>Promoting robust crop growth involves employing organic methods like composting, mulching, and
+                    bio-fertilizers. Vermicomposting stands out as a natural means to introduce vital nutrients to the
+                    soil. Fertilizers, categorized as inorganic (nitrogen, phosphorus) and organic (agricultural waste,
+                    livestock manure), supply essential nutrients for crop development. Regular nutrient replenishment,
+                    achieved through manuring with natural or chemical supplements, ensures optimal crop health and soil
+                    fertility, complemented by practices like vermicomposting and crop rotation.</p>
+            </div>
+        </lightning-layout-item>
+
+
+
+
+        <lightning-layout-item size="12" small-device-size="6" medium-device-size="4" large-device-size="3"
+            padding="horizontal-small">
+            <div class="tips slds-m-around_small slds-p-around_small slds-box">
+                <h2 class="slds-text-heading_medium">7. Weed Management</h2>
+                <p>Effective weed management is crucial in agriculture to mitigate the impact of unwanted plants among
+                    crops. Utilizing methods such as the use of weedicides, manual removal, and addressing weeds during
+                    soil preparation becomes essential. Weeds, if left uncontrolled, can impede crop yields and compete
+                    for valuable resources. Organic farming offers diverse options for weed control, including manual
+                    weeding, mowing, mechanical cultivation, and thermal methods like flaming, contributing to
+                    successful crop production.</p>
+            </div>
+        </lightning-layout-item>
+
+
+
+        <lightning-layout-item size="12" small-device-size="6" medium-device-size="4" large-device-size="3"
+            padding="horizontal-small">
+            <div class="tips slds-m-around_small slds-p-around_small slds-box">
+                <h2 class="slds-text-heading_medium">8. Tips for Pests and Diseases Management in Agriculture</h2>
+                <p>Effective pest and disease management in agriculture is crucial for safeguarding crop productivity.
+                    Viruses, bacteria, fungi, and insects pose significant threats to plant health. Utilizing pesticides
+                    and biocontrol agents offers protection against these challenges. Additionally, employing mechanical
+                    and physical control methods like tillage, mowing, cutting, and mulching helps mitigate the impact
+                    of pests and diseases. Proper storage practices further prevent product loss, ensuring a sustainable
+                    and thriving agricultural yield.</p>
+            </div>
+        </lightning-layout-item>
+
+
+        <lightning-layout-item size="12" small-device-size="6" medium-device-size="4" large-device-size="3"
+            padding="horizontal-small">
+            <div class="tips slds-m-around_small slds-p-around_small slds-box">
+                <h2 class="slds-text-heading_medium">9. Tips for Harvesting Plants</h2>
+                <p>Harvesting, the process of cutting and gathering mature crops, is crucial for a successful
+                    agricultural cycle. Following harvest, grains are separated from chaff through threshing or manual
+                    winnowing. Selecting the right harvest time based on ripeness and maturity is vital. Optimal harvest
+                    times, during early morning or evening when temperatures are lower, contribute to preserving produce
+                    quality. Delicate and high-value crops are best harvested manually for precision and care.</p>
+            </div>
+        </lightning-layout-item>
+
+    </lightning-layout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</template>

@@ -1,0 +1,135 @@
+<template>
+
+    <lightning-layout multiple-rows>
+        <lightning-layout-item size="12" small-device-size="12" medium-device-size="4" large-device-size="4">
+
+            <!-- Weather Data -->
+            <div class="weather-report-card slds-p-top_small slds-p-bottom_small">
+                <template if:true={result}>
+                    <h1 class="slds-text-heading_medium slds-align_absolute-center">Current Weather</h1>
+                    <h1 class=" slds-align_absolute-center">{date}</h1>
+                    <img class="slds-align_absolute-center" src={imageURL} alt="Weather Icon" />
+                    <p class="slds-align_absolute-center  slds-text-heading_medium">{result.location.name},
+                        {result.location.region}, {result.location.country}
+                    </p>
+                    <b class=" slds-align_absolute-center slds-text-heading_large slds-p-around_small">
+                        {result.current.feelslike_c}°C
+                    </b>
+                    <b class="slds-align_absolute-center slds-text-heading_small">{result.current.condition.text}</b>
+                </template>
+                <template if:false={result}>
+                    <p>No Weather Data Available, please check after sometime.</p>
+                </template>
+            </div>
+
+
+            <!-- Important Links Section -->
+
+            <div class="important-links slds-box slds-p-around_small slds-m-top_small">
+                <h1 class="slds-text-heading_medium">Important Links</h1>
+                <lightning-layout-item size="12" small-device-size="6" medium-device-size="6" large-device-size="6"
+                    padding="horizontal-small">
+                    <template if:true={linksdata} for:each={linksdata} for:item="implink">
+                        <div key={implink.Id} class="inm-data">
+                            <div>
+                                <lightning-formatted-rich-text value={implink.Image__c}></lightning-formatted-rich-text>
+                            </div>
+                            <div style="display: inline;">
+                                <h1 class="slds-m-top_medium slds-m-left_small">{implink.Name}</h1>
+                                <div class="slds-m-left_small">
+                                    <lightning-formatted-url value={implink.Url__c}
+                                        label="read more..."></lightning-formatted-url>
+                                </div>
+
+                            </div>
+                        </div>
+                    </template>
+                </lightning-layout-item>
+            </div>
+
+
+
+
+
+
+
+
+            <!--   other citys  maket data -->
+            <div class="Other-citys-marketdata slds-m-top_medium">
+                <div class="all-city-box slds-box">
+                    <p class="slds-text-heading_large slds-m-top_small slds-m-left_medium">See Other City's Makerts
+                        prices...!</p>
+                    <div
+                        class="all-cities slds-text-heading_medium slds-m-around_medium slds-m-left_medium slds-p-around_medium">
+                        <h1 data-name="Mumbai" onclick={clickoncity} class="slds-border_bottom">1. Mumbai</h1>
+                        <h1 data-name="Surat" onclick={clickoncity} class="slds-border_bottom">2. Surat</h1>
+                        <h1 data-name="Ahmedabad" onclick={clickoncity} class="slds-border_bottom">3. Ahmedabad</h1>
+                        <h1 data-name="Pune" onclick={clickoncity} class="slds-border_bottom">4. Pune</h1>
+                        <h1 data-name="Bangalore" onclick={clickoncity} class="slds-border_bottom">5. Bangalore</h1>
+                        <h1 data-name="Jaipur" onclick={clickoncity} class="slds-border_bottom">6. Jaipur</h1>
+                        <h1 data-name="Lucknow" onclick={clickoncity} class="slds-border_bottom">7. Lucknow</h1>
+                    </div>
+                </div>
+            </div>
+        </lightning-layout-item>
+
+
+
+
+        <!-- Live Market Commodity Data -->
+        <lightning-layout-item size="12" small-device-size="12" medium-device-size="8" large-device-size="8"
+            padding="horizontal-small">
+            <h1 class="slds-align_absolute-center slds-text-heading_medium slds-border_bottom slds-p-around_medium">
+                Hello! Here is your
+                all commodity
+                prices of Today..!</h1>
+
+            <div class="data-container">
+                <template if:true={StoreAgricultureData} for:each={StoreAgricultureData} for:item="data">
+                    <div key={data.id} class="data-item">
+                        <p><b>Arrival Date:</b> {data.arrival_date}</p>
+                        <p><b>Commodity:</b> {data.commodity}</p>
+                        <p><b>District:</b> {data.district}</p>
+                        <p><b>Market:</b> {data.market}</p>
+                        <p><b>Max Price:</b> {data.max_price}</p>
+                        <p><b>Min Price:</b> {data.min_price}</p>
+                        <p><b>Modal Price:</b> {data.modal_price}</p>
+                        <p><b>State:</b> {data.state}</p>
+                    </div>
+                </template>
+            </div>
+            <div class="previous-more-button slds-m-top_medium">
+                <div>
+                    <lightning-button class="slds-m-left_large" variant="brand" label="Previous"
+                        onclick={handleClickOfShowPrevios}></lightning-button>
+                </div>
+                <div>
+                    <lightning-button class="slds-m-right_large" variant="brand" label="Show More.."
+                        onclick={handleClickOfShowMore}></lightning-button>
+                </div>
+            </div>
+
+            <template if:true={StoreAgricultureDataTemplate}>
+                <p class="slds-align_absolute-center slds-text-heading_large slds-m-top_medium ">
+                    {StoreCurrentCityOfUser} City Market Is Opening Soon...</p>
+                <p class="slds-align_absolute-center slds-text-heading_large slds-m-top_medium ">Please Check After Some
+                    Time.</p>
+                <p class="slds-align_absolute-center slds-text-heading_large slds-m-top_medium slds-m-bottom_medium ">
+                    Thank you for visiting.
+                </p>
+
+            </template>
+        </lightning-layout-item>
+    </lightning-layout>
+
+
+
+    <!-- Spinner -->
+    <template if:true={Spinner}>
+        <div class="exampleHolder">
+            <lightning-spinner alternative-text="Loading" size="large"></lightning-spinner>
+        </div>
+    </template>
+
+
+</template>
